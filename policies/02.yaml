@@ -1,0 +1,10 @@
+metadata:
+  id: "ARM-002"
+  name: "Custom"
+  category: "NETWORKING"
+definition:
+  and:
+    - cond_type: attribute
+      resource_types: ["Microsoft.ContainerInstance/containerGroups", "Microsoft.Network/virtualNetworks"]
+      attribute: "apiVersion"
+      operator: "not_exists"

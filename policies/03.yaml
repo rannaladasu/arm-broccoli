@@ -1,0 +1,20 @@
+metadata:
+  id: "ARM-003"
+  name: "Azure Storage Account - Validating minimum TLS"
+  guidelines: "fix it"
+  category: general
+  severity: high
+scope:
+  provider: azure
+definition:
+  or:
+    - cond_type: attribute
+      resource_types: "Microsoft.Storage/storageAccounts"
+      attribute: "properties.minimumTlsVersion"
+      operator: "equals"
+      value: "TLS1_2"
+    - cond_type: attribute
+      resource_types: "azurerm_storage_account"
+      attribute: "min_tls_version"
+      operator: "equals"
+      value: "TLS1_2"
